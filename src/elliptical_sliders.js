@@ -25,13 +25,13 @@ class EllipticalSlider {
         ellipseSlider.style.backgroundColor = this.options.backgroundColor || '#eee';
 
         this.sliderHandle = document.createElement("div");
-        this.sliderHandle.className = "slider-handle";
+        this.sliderHandle.className = "ellipse-slider-handle";
         this.sliderHandle.style.backgroundColor = this.options.handleColor || '#333';
         this.sliderHandle.style.width = `${this.options.handleSize || 20}px`;
         this.sliderHandle.style.height = `${this.options.handleSize || 20}px`;
 
         this.sliderValueDisplay = document.createElement("div");
-        this.sliderValueDisplay.className = "slider-value";
+        this.sliderValueDisplay.className = "ellipse-slider-value";
         this.sliderValueDisplay.textContent = `Value: ${this.currentValue}`;
 
         ellipseSlider.appendChild(this.sliderHandle);

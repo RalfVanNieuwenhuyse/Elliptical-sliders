@@ -1,22 +1,11 @@
-.ellipse-slider-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.ellipse-container {
-    text-align: center;
-}
-
 .ellipse-slider {
     position: relative;
     border-radius: 50%;
-    background: #eee;
+    background: transparent;
     margin: 20px;
 }
 
-.slider-handle {
+.ellipse-slider-handle {
     position: absolute;
     width: 20px;
     height: 20px;
@@ -26,16 +15,11 @@
     transform: translate(-50%, -50%);
 }
 
-.slider-value {
+.ellipse-slider-value {
     margin-top: 10px;
     font-size: 1.2em;
 }
 
-.test {
-    margin-left: 0px;
-    transform: scale(1, 1);
-}
-
-.slider-wrapper {
+.ellipse-slider-wrapper {
     margin: 20px;
 }
