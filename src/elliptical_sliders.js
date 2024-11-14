@@ -22,7 +22,7 @@ class EllipticalSlider {
         ellipseSlider.style.width = `${this.options.radiusX * 2}px`;
         ellipseSlider.style.height = `${this.options.radiusY * 2}px`;
         ellipseSlider.style.border = `${this.options.borderThickness || 4}px solid ${this.options.color || '#333'}`;
-        ellipseSlider.style.backgroundColor = this.options.backgroundColor || '#eee';
+        ellipseSlider.style.backgroundColor = this.options.backgroundColor || 'transparent';
 
         this.sliderHandle = document.createElement("div");
         this.sliderHandle.className = "ellipse-slider-handle";
