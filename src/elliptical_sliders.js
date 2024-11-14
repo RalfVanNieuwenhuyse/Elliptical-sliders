@@ -14,7 +14,7 @@ class EllipticalSlider {
         const container = document.getElementById(this.targetDiv);
 
         const sliderWrapper = document.createElement("div");
-        sliderWrapper.className = "ellipse-container test";
+        sliderWrapper.className = "ellipse-container";
 
         const ellipseSlider = document.createElement("div");
         ellipseSlider.className = "ellipse-slider";

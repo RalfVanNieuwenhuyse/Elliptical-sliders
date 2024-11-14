@@ -2,7 +2,12 @@
     position: relative;
     border-radius: 50%;
     background: transparent;
-    margin: 20px;
+    margin: 0px;
+    pointer-events: none;    
+}
+
+.ellipse-container {
+    text-align: center;
 }
 
 .ellipse-slider-handle {
@@ -13,6 +18,7 @@
     cursor: pointer;
     background-color: orange;
     transform: translate(-50%, -50%);
+    pointer-events: all;
 }
 
 .ellipse-slider-value {
@@ -22,4 +28,6 @@
 
 .ellipse-slider-wrapper {
     margin: 20px;
+    position: relative;
+    pointer-events: none;
 }
