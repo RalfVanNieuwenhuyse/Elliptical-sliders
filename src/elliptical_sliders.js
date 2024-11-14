@@ -22,7 +22,7 @@ class EllipticalSlider {
         ellipseSlider.style.width = `${this.options.radiusX * 2}px`;
         ellipseSlider.style.height = `${this.options.radiusY * 2}px`;
         ellipseSlider.style.border = `${this.options.borderThickness || 4}px solid ${this.options.color || '#333'}`;
-        ellipseSlider.style.backgroundColor = this.options.backgroundColor || '#eee';
+        ellipseSlider.style.backgroundColor = this.options.backgroundColor || 'transparent';
 
         this.sliderHandle = document.createElement("div");
         this.sliderHandle.className = "ellipse-slider-handle";
@@ -62,18 +62,33 @@ class EllipticalSlider {
                 }
             }
         });
+        this.setHandlePosition(this.currentValue);
     }
 
     // Function to set handle position based on value (0 to 100)
     setHandlePosition(value) {
+        // Calculate the percentage of the value within the specified range
+        const percentage = ((value - this.options.min) / (this.options.max - this.options.min)) * 100;
+    
+        // Calculate the angle in radians based on the percentage of the range
+        const angle = Math.PI -(percentage / 100) * 2 * Math.PI;
+    
+        // Calculate (x, y) on the ellipse at the given angle
         const outerRadiusX = this.options.radiusX + this.options.borderThickness / 2;
         const outerRadiusY = this.options.radiusY + this.options.borderThickness / 2;
-        const angle = (value / 100) * 2 * Math.PI;
+    
+        // Offset these coordinates by adding the ellipse’s center position within the container
         const { x, y } = this.calculateEllipsePoint(outerRadiusX, outerRadiusY, angle);
 
         this.sliderHandle.style.left = `${x + this.options.radiusX}px`;
         this.sliderHandle.style.top = `${y + this.options.radiusY}px`;
+    
+        // If the slider displays the value, update the display
+        if (this.options.showValue) {
+            this.sliderValueDisplay.textContent = `Value: ${value}`;
+        }    
     }
+    
 
     // Function to move the handle based on mouse position
     moveHandle(e) {
@@ -89,6 +104,7 @@ class EllipticalSlider {
         const normY = mouseY / this.options.radiusY;
 
         const angle = Math.atan2(normY, normX);
+        
         const value = Math.round(((angle + Math.PI) / (2 * Math.PI)) * 100);
 
         const outerRadiusX = this.options.radiusX + this.options.borderThickness / 2;
@@ -99,7 +115,7 @@ class EllipticalSlider {
 
         this.sliderHandle.style.left = `${x + this.options.radiusX}px`;
         this.sliderHandle.style.top = `${y + this.options.radiusY}px`;
-
+        
         if (this.options.showValue) {
             this.sliderValueDisplay.textContent = `Value: ${scaledValue.toFixed(2)}`;
         }
