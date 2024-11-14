@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elliptical Slider</title>
+    <link type="text/css" href="src/elliptical_sliders.css" rel="stylesheet" />
+    <script src="src/elliptical_sliders.js"></script>
+
+    <style>
+        body, html {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Define separate divs for sliders -->
+    <div id="slider1-container" class="slider-wrapper"></div>
+    <div id="slider2-container" class="slider-wrapper"></div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Create multiple sliders in different divs
+        const slider1 = new EllipticalSlider('slider1-container', 'slider1', {
+            radiusX: 150,
+            radiusY: 90,
+            color: 'blue',
+            handleColor: 'orange',
+            initialValue: 30,
+            min: 0,
+            max: 100,
+            showValue: true,
+            borderThickness: 4,
+            onChange: function(value) {
+                console.log("Slider 1 Value Changed: " + value); // Callback when value changes
+            }
+        });
+
+        const slider2 = new EllipticalSlider('slider2-container', 'slider2', {
+            radiusX: 180,
+            radiusY: 120,
+            color: 'green',
+            handleColor: 'red',
+            initialValue: 50,
+            min: 0,
+            max: 100,
+            showValue: true,
+            borderThickness: 5,
+            onChange: function(value) {
+                console.log("Slider 2 Value Changed: " + value); // Callback when value changes
+            }
+        });
+    });
+    </script>
+
+</body>
+</html>
