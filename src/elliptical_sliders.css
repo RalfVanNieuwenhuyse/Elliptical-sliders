@@ -4,6 +4,7 @@
     background: transparent;
     margin: 0px;
     pointer-events: none;    
+    touch-action: none;
 }
 
 .ellipse-container {
@@ -19,6 +20,7 @@
     background-color: orange;
     transform: translate(-50%, -50%);
     pointer-events: all;
+    touch-action: auto;
 }
 
 .ellipse-slider-value {
@@ -30,4 +32,5 @@
     margin: 20px;
     position: relative;
     pointer-events: none;
+    touch-action: none;
 }
